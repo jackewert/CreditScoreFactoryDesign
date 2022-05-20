@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TakeHomeAssesmentOpenLending.iml" filepath="$PROJECT_DIR$/TakeHomeAssesmentOpenLending.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CreditScoreFactoryDesignMethod.iml" filepath="$PROJECT_DIR$/CreditScoreFactoryDesignMethod.iml" />
     </modules>
   </component>
 </project>
