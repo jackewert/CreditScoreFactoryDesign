@@ -4,6 +4,10 @@ import com.FactoryDesignScores.beans.CreditScore;
 import com.FactoryDesignScores.factory.CreditScoreFactory;
 import com.FactoryDesignScores.factory.CreditScoreType;
 import org.junit.*;
+import java.util.*;
+
+import static com.FactoryDesignScores.Main.readIn;
+import static java.lang.System.in;
 import static org.junit.Assert.assertEquals;
 
 
@@ -43,9 +47,10 @@ public class FirstTest {
     }
 
     @Test
-    public void testGetScores() throws Throwable{
+    public void testUserInput() throws Throwable{
         //Given
-
+        Scanner keyboard= new Scanner(in);
+        readIn();
         //When
 
         //Then
