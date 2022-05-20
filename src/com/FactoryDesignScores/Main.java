@@ -56,7 +56,7 @@ public class Main {
                  }
                  //this is for spacing
                  System.out.println();
-                 System.out.println();
+
              }
              catch(NumberFormatException ex){
                  System.out.println("Please enter a choice from those listed above");
@@ -103,6 +103,7 @@ public class Main {
         if(choice<credits.length && choice>=0){
             System.out.println("The score was " + credits[choice].getScore());
         }
+        System.out.println();
     }
 
     //this test does not scale with new CreditScore types

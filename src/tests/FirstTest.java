@@ -4,11 +4,14 @@ import com.FactoryDesignScores.beans.CreditScore;
 import com.FactoryDesignScores.factory.CreditScoreFactory;
 import com.FactoryDesignScores.factory.CreditScoreType;
 import org.junit.*;
-import java.util.*;
 
-import static com.FactoryDesignScores.Main.readIn;
+import java.nio.charset.Charset;
+import java.util.*;
+import java.util.Random;
+
+import static com.FactoryDesignScores.Main.*;
 import static java.lang.System.in;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 
 public class FirstTest {
@@ -45,17 +48,39 @@ public class FirstTest {
             assertEquals("com.FactoryDesignScores.beans.TransUnion", sample[2].getClass().getName());
         }
     }
-
+        //incomplete  was attempting to randomize user input in an attempt find test cases that would break program. My current logic is incorrect
+    /*
     @Test
     public void testUserInput() throws Throwable{
-        //Given
-        Scanner keyboard= new Scanner(in);
-        readIn();
-        //When
+        //makes a quick sample case of creditscores
+        boolean exceptionThrown=false;
+        CreditScore [] sample =test();
+        for(int a=0; a<100000; a++) {
+            //this creates a random user input
+            byte[] array = new byte[7]; //length is bounded by 7
+            new Random().nextBytes(array);
+            String temp = new String(array, Charset.forName("UTF-8"));
+            try {
+                int number = Integer.parseInt(temp);
+                if (Integer.parseInt(String.valueOf(temp)) >= 3 || Integer.parseInt(String.valueOf(temp)) < 0) {
+                    System.out.println("Please enter a choice from those listed above");
+                } else {
+                    printScore(Integer.parseInt(String.valueOf(temp)), sample);
+                }
+                //this is for spacing
+                System.out.println();
 
-        //Then
-        //assertEquals(176.0d, 12 , 0.0);
+            } catch (NumberFormatException ex) {
+                System.out.println(temp);
+                exceptionThrown = true;
+            }
+
+            assertFalse(exceptionThrown);
+            exceptionThrown = false;
+        }
+
     }
+    */
 
 
 
