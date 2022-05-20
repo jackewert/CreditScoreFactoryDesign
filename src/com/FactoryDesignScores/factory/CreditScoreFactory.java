@@ -5,7 +5,7 @@ import com.FactoryDesignScores.beans.Equifax;
 import com.FactoryDesignScores.beans.Experian;
 import com.FactoryDesignScores.beans.TransUnion;
 /*
-CreditScoreFactory
+CreditScoreFactory - factory
  */
 public class CreditScoreFactory {
     public static CreditScore createCreditScore(CreditScoreType type, Integer score){
