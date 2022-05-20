@@ -1,7 +1,6 @@
 package com.FactoryDesignScores;
 
 import com.FactoryDesignScores.beans.CreditScore;
-import com.FactoryDesignScores.beans.TransUnion;
 import com.FactoryDesignScores.factory.CreditScoreFactory;
 import com.FactoryDesignScores.factory.CreditScoreType;
 
@@ -28,8 +27,10 @@ public class Main {
 
         //temp will act as the character the program will use to choose which score to readout or to exit the loop.
         //the limits of using a character will affect number of credit score options to 10, can be adjusted later
-     String temp = "";
+     String temp;
 
+     //useful for tracking number of Credit Score types in CreditScoreType dynamically
+        int numberOfCredits= CreditScoreType.values().length;
 
         //this is the main loop the program will be in if it's running in command line
      while(exit!=true){
@@ -43,13 +44,24 @@ public class Main {
          if(temp.charAt(0) == 'q'){
              exit= true;
          }
-         else{
-             printScore(Integer.parseInt(String.valueOf(temp)), test);
+         else {
+             //this try statement was to catch as many program breaking inputs as I could find
+             try{
+                 int number = Integer.parseInt(temp);
+                 if (Integer.parseInt(String.valueOf(temp))>=numberOfCredits || Integer.parseInt(String.valueOf(temp))<0 ){
+                     System.out.println("Please enter a choice from those listed above");
+                 }
+                 else{
+                     printScore(Integer.parseInt(String.valueOf(temp)), test);
+                 }
+                 //this is for spacing
+                 System.out.println();
+                 System.out.println();
+             }
+             catch(NumberFormatException ex){
+                 System.out.println("Please enter a choice from those listed above");
+             }
          }
-
-         //this is for spacing
-         System.out.println();
-         System.out.println();
      }
 
     }
@@ -70,7 +82,7 @@ public class Main {
             count++;
         }
         //q is not part of count
-        System.out.print(" " + "q" + "="+ "quit" + ",");
+        System.out.print(" " + "q" + "="+ "quit" + "," + "\n");
     }
 
     public static String readIn()
@@ -86,10 +98,10 @@ public class Main {
         return value;
     }
 
+
     public static void printScore(Integer choice, CreditScore [] credits){
-        System.out.println(choice);
-        if(choice<(credits.length-1)){
-            System.out.println(credits[choice].getScore());
+        if(choice<credits.length && choice>=0){
+            System.out.println("The score was " + credits[choice].getScore());
         }
     }
 
