@@ -46,6 +46,10 @@ public class Main {
          else{
              printScore(Integer.parseInt(String.valueOf(temp)), test);
          }
+
+         //this is for spacing
+         System.out.println();
+         System.out.println();
      }
 
     }
@@ -53,7 +57,7 @@ public class Main {
 
 
     /*
-    readOut will replicate the printout shown in the example for the assesment while scaling to more credit score types added
+    readOut will replicate the printout shown in the example for the assessment while scaling to more credit score types added
     */
     public static void introduction() {
         System.out.println("Welcome to the Credit Score CLI");
