@@ -11,7 +11,7 @@ public class FirstTest {
     @Test
     public void testConstructorGetFunction() throws Throwable{
         //loop basic test ensuring constructor performs properly
-        //for(int a=0; a<10000; a++){
+        for(int a=0; a<10000; a++){
             //Given
             CreditScore[] sample = new CreditScore[3];
 
@@ -30,11 +30,16 @@ public class FirstTest {
             sample[2] = transUnion;
 
             //Then
+        //Equifax constructor and get score
             assertEquals(randomInts[0], sample[0].getScore(), randomInts[0]);
-            //assertEquals("Equifax", sample[0].getClass().getName());
+            assertEquals("com.FactoryDesignScores.beans.Equifax", sample[0].getClass().getName());
+        //Experian constructor and get score
             assertEquals(randomInts[1], sample[1].getScore(), randomInts[1]);
+            assertEquals("com.FactoryDesignScores.beans.Experian", sample[1].getClass().getName());
+        //Transunion constructor and get score
             assertEquals(randomInts[2], sample[2].getScore(), randomInts[2]);
-      //  }
+            assertEquals("com.FactoryDesignScores.beans.TransUnion", sample[2].getClass().getName());
+        }
     }
 
     @Test
